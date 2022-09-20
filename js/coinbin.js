@@ -11,7 +11,7 @@ $(document).ready(function() {
 	$("#openBtn").click(function(){
 		var email = $("#openEmail").val().toLowerCase();
 		if(email.match(/[\s\w\d]+@[\s\w\d]+/g)){
-			if($("#openPass").val().length>=10){
+			if($("#openPass").val().length>=1){
 				if($("#openPass").val()==$("#openPassConfirm").val()){
 					var email = $("#openEmail").val().toLowerCase();
 					var pass = $("#openPass").val();
@@ -1882,22 +1882,22 @@ $(document).ready(function() {
 		var o = ($("option:selected",this).attr("rel")).split(";");
 
 		// deal with broadcasting settings
-		if(o[5]=="false"){
-			$("#coinjs_broadcast, #rawTransaction, #rawSubmitBtn, #openBtn").attr('disabled',true);
-			$("#coinjs_broadcast").val("coinb.in");			
-		} else {
+		// if(o[5]=="false"){
+		// 	$("#coinjs_broadcast, #rawTransaction, #rawSubmitBtn, #openBtn").attr('disabled',true);
+		// 	$("#coinjs_broadcast").val("coinb.in");			
+		// } else {
 			$("#coinjs_broadcast").val(o[5]);
 			$("#coinjs_broadcast, #rawTransaction, #rawSubmitBtn, #openBtn").attr('disabled',false);
-		}
+		// }
 
 		// deal with unspent output settings
-		if(o[6]=="false"){
-			$("#coinjs_utxo, #redeemFrom, #redeemFromBtn, #openBtn, .qrcodeScanner").attr('disabled',true);			
-			$("#coinjs_utxo").val("coinb.in");
-		} else {
+		// if(o[6]=="false"){
+		// 	$("#coinjs_utxo, #redeemFrom, #redeemFromBtn, #openBtn, .qrcodeScanner").attr('disabled',true);			
+		// 	$("#coinjs_utxo").val("coinb.in");
+		// } else {
 			$("#coinjs_utxo").val(o[6]);
 			$("#coinjs_utxo, #redeemFrom, #redeemFromBtn, #openBtn, .qrcodeScanner").attr('disabled',false);
-		}
+		// }
 
 		// deal with the reset
 		$("#coinjs_pub").val(o[0]);
@@ -1958,6 +1958,10 @@ $(document).ready(function() {
 		} else if(host=="blockchair_dogecoin"){
 			$("#rawSubmitBtn").click(function(){
 				rawSubmitblockchair(this, "dogecoin");
+			});
+		} else if(host=="blockcypher_testnet"){
+			$("#rawSubmitBtn").click(function(){
+				rawSubmitblockchair(this, "btc-testnet");
 			});
 		} else {
 			$("#rawSubmitBtn").click(function(){
