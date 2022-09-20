@@ -1,4 +1,4 @@
-coinbin
+coinbin for open testnet in wallet tab
 =======
 
 A Open Source Browser Based Bitcoin Wallet. Version 1.7 beta by OutCast3k
